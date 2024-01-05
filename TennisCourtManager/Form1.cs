@@ -264,5 +264,26 @@ namespace TennisCourtManager
             Obj.Show();
             this.Hide();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            Users Obj = new Users();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Customers Obj = new Customers();
+            Obj.Show();
+            this.Hide();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            Reservations Obj = new Reservations();
+            Obj.Show();
+            this.Hide();
+        }
     }
 }

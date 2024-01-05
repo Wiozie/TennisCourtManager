@@ -72,16 +72,17 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
-            dateTimePicker1 = new DateTimePicker();
-            comboBox2 = new ComboBox();
-            comboBox1 = new ComboBox();
-            textBox3 = new TextBox();
-            button3 = new Button();
-            button1 = new Button();
-            CourtsDGV = new DataGridView();
+            ResClearBtn = new Button();
+            ResStartCb = new ComboBox();
+            ResTimeCb = new ComboBox();
+            ResStartDtp = new DateTimePicker();
+            ResCustomerCb = new ComboBox();
+            ResCourtCb = new ComboBox();
+            ResCostTb = new TextBox();
+            ResCancelBtn = new Button();
+            ResSaveBtn = new Button();
+            ResDGV = new DataGridView();
             label16 = new Label();
-            dateTimePicker2 = new DateTimePicker();
-            comboBox3 = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
             panel15.SuspendLayout();
@@ -111,7 +112,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CourtsDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)ResDGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -345,6 +346,7 @@
             label10.Size = new Size(78, 29);
             label10.TabIndex = 0;
             label10.Text = "Klienci";
+            label10.Click += label10_Click;
             // 
             // panel9
             // 
@@ -409,6 +411,7 @@
             label8.Size = new Size(125, 29);
             label8.TabIndex = 0;
             label8.Text = "Pracownicy";
+            label8.Click += label8_Click;
             // 
             // panel7
             // 
@@ -441,6 +444,7 @@
             label6.Size = new Size(107, 29);
             label6.TabIndex = 0;
             label6.Text = "Kategorie";
+            label6.Click += label6_Click;
             // 
             // panel5
             // 
@@ -452,6 +456,7 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(208, 51);
             panel5.TabIndex = 3;
+            panel5.Paint += panel5_Paint;
             // 
             // panel6
             // 
@@ -504,6 +509,7 @@
             label4.Size = new Size(65, 29);
             label4.TabIndex = 0;
             label4.Text = "Korty";
+            label4.Click += label4_Click;
             // 
             // panel3
             // 
@@ -571,85 +577,126 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLight;
-            panel2.Controls.Add(comboBox3);
-            panel2.Controls.Add(dateTimePicker2);
-            panel2.Controls.Add(dateTimePicker1);
-            panel2.Controls.Add(comboBox2);
-            panel2.Controls.Add(comboBox1);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(button3);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(CourtsDGV);
+            panel2.Controls.Add(ResClearBtn);
+            panel2.Controls.Add(ResStartCb);
+            panel2.Controls.Add(ResTimeCb);
+            panel2.Controls.Add(ResStartDtp);
+            panel2.Controls.Add(ResCustomerCb);
+            panel2.Controls.Add(ResCourtCb);
+            panel2.Controls.Add(ResCostTb);
+            panel2.Controls.Add(ResCancelBtn);
+            panel2.Controls.Add(ResSaveBtn);
+            panel2.Controls.Add(ResDGV);
             panel2.Controls.Add(label16);
             panel2.Location = new Point(217, 94);
             panel2.Name = "panel2";
             panel2.Size = new Size(1152, 495);
             panel2.TabIndex = 0;
             // 
-            // dateTimePicker1
+            // ResClearBtn
             // 
-            dateTimePicker1.Format = DateTimePickerFormat.Short;
-            dateTimePicker1.Location = new Point(28, 53);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(141, 37);
-            dateTimePicker1.TabIndex = 18;
+            ResClearBtn.BackColor = Color.SteelBlue;
+            ResClearBtn.ForeColor = SystemColors.ControlLightLight;
+            ResClearBtn.Location = new Point(809, 102);
+            ResClearBtn.Name = "ResClearBtn";
+            ResClearBtn.Size = new Size(123, 51);
+            ResClearBtn.TabIndex = 22;
+            ResClearBtn.Text = "Wyczyść";
+            ResClearBtn.UseVisualStyleBackColor = false;
+            ResClearBtn.Click += ResClearBtn_Click;
             // 
-            // comboBox2
+            // ResStartCb
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Location = new Point(480, 53);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(246, 37);
-            comboBox2.TabIndex = 17;
-            comboBox2.Text = "Klient";
+            ResStartCb.FormattingEnabled = true;
+            ResStartCb.Items.AddRange(new object[] { "7:00", "8:00", "9:00", "10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00" });
+            ResStartCb.Location = new Point(175, 53);
+            ResStartCb.Name = "ResStartCb";
+            ResStartCb.Size = new Size(141, 37);
+            ResStartCb.TabIndex = 21;
+            ResStartCb.Text = "Godzina";
+            ResStartCb.SelectedIndexChanged += ResStartCb_SelectedIndexChanged;
             // 
-            // comboBox1
+            // ResTimeCb
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(732, 53);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(246, 37);
-            comboBox1.TabIndex = 10;
-            comboBox1.Text = "Kort";
+            ResTimeCb.FormattingEnabled = true;
+            ResTimeCb.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
+            ResTimeCb.Location = new Point(322, 53);
+            ResTimeCb.Name = "ResTimeCb";
+            ResTimeCb.Size = new Size(152, 37);
+            ResTimeCb.TabIndex = 20;
+            ResTimeCb.Text = "Czas";
+            ResTimeCb.SelectedIndexChanged += ResTimeCb_SelectedIndexChanged;
             // 
-            // textBox3
+            // ResStartDtp
             // 
-            textBox3.Location = new Point(984, 53);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(136, 37);
-            textBox3.TabIndex = 16;
-            textBox3.Text = "Do zapłaty";
+            ResStartDtp.Format = DateTimePickerFormat.Short;
+            ResStartDtp.Location = new Point(28, 53);
+            ResStartDtp.Name = "ResStartDtp";
+            ResStartDtp.Size = new Size(141, 37);
+            ResStartDtp.TabIndex = 18;
+            ResStartDtp.Value = new DateTime(2024, 1, 5, 13, 6, 15, 0);
+            ResStartDtp.ValueChanged += ResStartDtp_ValueChanged;
             // 
-            // button3
+            // ResCustomerCb
             // 
-            button3.BackColor = Color.IndianRed;
-            button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(638, 102);
-            button3.Name = "button3";
-            button3.Size = new Size(123, 51);
-            button3.TabIndex = 14;
-            button3.Text = "Anuluj";
-            button3.UseVisualStyleBackColor = false;
+            ResCustomerCb.FormattingEnabled = true;
+            ResCustomerCb.Location = new Point(480, 53);
+            ResCustomerCb.Name = "ResCustomerCb";
+            ResCustomerCb.Size = new Size(246, 37);
+            ResCustomerCb.TabIndex = 17;
+            ResCustomerCb.Text = "Klient";
             // 
-            // button1
+            // ResCourtCb
             // 
-            button1.BackColor = Color.SteelBlue;
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(442, 102);
-            button1.Name = "button1";
-            button1.Size = new Size(123, 51);
-            button1.TabIndex = 12;
-            button1.Text = "Rezerwuj";
-            button1.UseVisualStyleBackColor = false;
+            ResCourtCb.FormattingEnabled = true;
+            ResCourtCb.Location = new Point(732, 53);
+            ResCourtCb.Name = "ResCourtCb";
+            ResCourtCb.Size = new Size(246, 37);
+            ResCourtCb.TabIndex = 10;
+            ResCourtCb.Text = "Kort";
+            ResCourtCb.SelectedIndexChanged += ResCourtCb_SelectedIndexChanged;
             // 
-            // CourtsDGV
+            // ResCostTb
             // 
-            CourtsDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CourtsDGV.Location = new Point(16, 167);
-            CourtsDGV.Name = "CourtsDGV";
-            CourtsDGV.RowHeadersWidth = 62;
-            CourtsDGV.Size = new Size(1123, 316);
-            CourtsDGV.TabIndex = 11;
+            ResCostTb.Location = new Point(984, 53);
+            ResCostTb.Name = "ResCostTb";
+            ResCostTb.Size = new Size(136, 37);
+            ResCostTb.TabIndex = 16;
+            ResCostTb.Text = "Do zapłaty";
+            // 
+            // ResCancelBtn
+            // 
+            ResCancelBtn.BackColor = Color.IndianRed;
+            ResCancelBtn.ForeColor = SystemColors.ControlLightLight;
+            ResCancelBtn.Location = new Point(549, 102);
+            ResCancelBtn.Name = "ResCancelBtn";
+            ResCancelBtn.Size = new Size(123, 51);
+            ResCancelBtn.TabIndex = 14;
+            ResCancelBtn.Text = "Anuluj";
+            ResCancelBtn.UseVisualStyleBackColor = false;
+            ResCancelBtn.Click += ResCancelBtn_Click;
+            // 
+            // ResSaveBtn
+            // 
+            ResSaveBtn.BackColor = Color.MediumSeaGreen;
+            ResSaveBtn.ForeColor = SystemColors.ControlLightLight;
+            ResSaveBtn.Location = new Point(280, 102);
+            ResSaveBtn.Name = "ResSaveBtn";
+            ResSaveBtn.Size = new Size(123, 51);
+            ResSaveBtn.TabIndex = 12;
+            ResSaveBtn.Text = "Rezerwuj";
+            ResSaveBtn.UseVisualStyleBackColor = false;
+            ResSaveBtn.Click += ResSaveBtn_Click;
+            // 
+            // ResDGV
+            // 
+            ResDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ResDGV.Location = new Point(16, 167);
+            ResDGV.Name = "ResDGV";
+            ResDGV.RowHeadersWidth = 62;
+            ResDGV.Size = new Size(1123, 316);
+            ResDGV.TabIndex = 11;
+            ResDGV.CellContentClick += ResDGV_CellContentClick;
             // 
             // label16
             // 
@@ -662,24 +709,6 @@
             label16.Size = new Size(319, 39);
             label16.TabIndex = 10;
             label16.Text = "Zarządzaj rezerwacjami";
-            // 
-            // dateTimePicker2
-            // 
-            dateTimePicker2.Format = DateTimePickerFormat.Time;
-            dateTimePicker2.Location = new Point(175, 53);
-            dateTimePicker2.Name = "dateTimePicker2";
-            dateTimePicker2.Size = new Size(141, 37);
-            dateTimePicker2.TabIndex = 19;
-            // 
-            // comboBox3
-            // 
-            comboBox3.FormattingEnabled = true;
-            comboBox3.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12" });
-            comboBox3.Location = new Point(322, 53);
-            comboBox3.Name = "comboBox3";
-            comboBox3.Size = new Size(152, 37);
-            comboBox3.TabIndex = 20;
-            comboBox3.Text = "Czas";
             // 
             // Reservations
             // 
@@ -738,7 +767,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)CourtsDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)ResDGV).EndInit();
             ResumeLayout(false);
         }
 
@@ -787,15 +816,17 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox3;
-        private Button button3;
-        private Button button1;
-        private DataGridView CourtsDGV;
+        private TextBox ResCostTb;
+        private Button ResCancelBtn;
+        private Button ResSaveBtn;
+        private DataGridView ResDGV;
         private Label label16;
-        private ComboBox comboBox2;
-        private ComboBox comboBox1;
-        private DateTimePicker dateTimePicker1;
+        private ComboBox ResCustomerCb;
+        private ComboBox ResCourtCb;
+        private DateTimePicker ResStartDtp;
         private DateTimePicker dateTimePicker2;
-        private ComboBox comboBox3;
+        private ComboBox ResTimeCb;
+        private ComboBox ResStartCb;
+        private Button ResClearBtn;
     }
 }

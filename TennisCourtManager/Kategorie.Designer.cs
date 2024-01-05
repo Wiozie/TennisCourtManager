@@ -380,7 +380,7 @@
             // 
             DeleteBtn.BackColor = Color.IndianRed;
             DeleteBtn.ForeColor = SystemColors.ControlLightLight;
-            DeleteBtn.Location = new Point(619, 110);
+            DeleteBtn.Location = new Point(619, 109);
             DeleteBtn.Name = "DeleteBtn";
             DeleteBtn.Size = new Size(123, 51);
             DeleteBtn.TabIndex = 14;

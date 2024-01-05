@@ -75,15 +75,16 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
-            button3 = new Button();
+            ClearBtn = new Button();
+            SaveBtn = new Button();
+            UPasswordTb = new TextBox();
+            UEmailTb = new TextBox();
+            UPhoneTb = new TextBox();
+            DeleteBtn = new Button();
             button2 = new Button();
-            button1 = new Button();
-            CourtsDGV = new DataGridView();
+            UserDGV = new DataGridView();
             label16 = new Label();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
-            textBox3 = new TextBox();
-            textBox4 = new TextBox();
+            UNameTb = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
             panel15.SuspendLayout();
@@ -115,7 +116,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CourtsDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)UserDGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -285,6 +286,7 @@
             label12.Size = new Size(123, 29);
             label12.TabIndex = 0;
             label12.Text = "Rezerwacje";
+            label12.Click += label12_Click;
             // 
             // panel11
             // 
@@ -349,6 +351,7 @@
             label10.Size = new Size(78, 29);
             label10.TabIndex = 0;
             label10.Text = "Klienci";
+            label10.Click += label10_Click;
             // 
             // panel9
             // 
@@ -477,6 +480,7 @@
             label6.Size = new Size(107, 29);
             label6.TabIndex = 0;
             label6.Text = "Kategorie";
+            label6.Click += label6_Click;
             // 
             // panel5
             // 
@@ -540,6 +544,7 @@
             label4.Size = new Size(65, 29);
             label4.TabIndex = 0;
             label4.Text = "Korty";
+            label4.Click += label4_Click;
             // 
             // panel3
             // 
@@ -607,61 +612,109 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLight;
-            panel2.Controls.Add(textBox4);
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(ClearBtn);
+            panel2.Controls.Add(SaveBtn);
+            panel2.Controls.Add(UPasswordTb);
+            panel2.Controls.Add(UEmailTb);
+            panel2.Controls.Add(UPhoneTb);
+            panel2.Controls.Add(DeleteBtn);
             panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(CourtsDGV);
+            panel2.Controls.Add(UserDGV);
             panel2.Controls.Add(label16);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(UNameTb);
             panel2.Location = new Point(217, 94);
             panel2.Name = "panel2";
             panel2.Size = new Size(1152, 495);
             panel2.TabIndex = 0;
             // 
-            // button3
+            // ClearBtn
             // 
-            button3.BackColor = Color.IndianRed;
-            button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(777, 110);
-            button3.Name = "button3";
-            button3.Size = new Size(123, 51);
-            button3.TabIndex = 14;
-            button3.Text = "Usuń";
-            button3.UseVisualStyleBackColor = false;
+            ClearBtn.BackColor = Color.SteelBlue;
+            ClearBtn.ForeColor = SystemColors.ControlLightLight;
+            ClearBtn.Location = new Point(855, 109);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(123, 51);
+            ClearBtn.TabIndex = 19;
+            ClearBtn.Text = "Wyczyść";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
+            // 
+            // SaveBtn
+            // 
+            SaveBtn.BackColor = Color.MediumSeaGreen;
+            SaveBtn.ForeColor = SystemColors.ControlLightLight;
+            SaveBtn.Location = new Point(170, 109);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(123, 51);
+            SaveBtn.TabIndex = 18;
+            SaveBtn.Text = "Zapisz";
+            SaveBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Click += SaveBtn_Click;
+            // 
+            // UPasswordTb
+            // 
+            UPasswordTb.Location = new Point(893, 59);
+            UPasswordTb.Name = "UPasswordTb";
+            UPasswordTb.Size = new Size(246, 37);
+            UPasswordTb.TabIndex = 17;
+            UPasswordTb.Text = "Hasło";
+            // 
+            // UEmailTb
+            // 
+            UEmailTb.Location = new Point(593, 59);
+            UEmailTb.Name = "UEmailTb";
+            UEmailTb.Size = new Size(246, 37);
+            UEmailTb.TabIndex = 16;
+            UEmailTb.Text = "Email";
+            UEmailTb.TextChanged += textBox3_TextChanged;
+            // 
+            // UPhoneTb
+            // 
+            UPhoneTb.Location = new Point(304, 59);
+            UPhoneTb.Name = "UPhoneTb";
+            UPhoneTb.Size = new Size(246, 37);
+            UPhoneTb.TabIndex = 15;
+            UPhoneTb.Text = "Numer telefonu";
+            // 
+            // DeleteBtn
+            // 
+            DeleteBtn.BackColor = Color.IndianRed;
+            DeleteBtn.ForeColor = SystemColors.ControlLightLight;
+            DeleteBtn.Location = new Point(619, 109);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(123, 51);
+            DeleteBtn.TabIndex = 14;
+            DeleteBtn.Text = "Usuń";
+            DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.Goldenrod;
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(533, 109);
+            button2.Location = new Point(385, 109);
             button2.Name = "button2";
             button2.Size = new Size(123, 51);
             button2.TabIndex = 13;
             button2.Text = "Edytuj";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // button1
+            // UserDGV
             // 
-            button1.BackColor = Color.SteelBlue;
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(278, 109);
-            button1.Name = "button1";
-            button1.Size = new Size(123, 51);
-            button1.TabIndex = 12;
-            button1.Text = "Zapisz";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // CourtsDGV
-            // 
-            CourtsDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CourtsDGV.Location = new Point(16, 167);
-            CourtsDGV.Name = "CourtsDGV";
-            CourtsDGV.RowHeadersWidth = 62;
-            CourtsDGV.Size = new Size(1123, 316);
-            CourtsDGV.TabIndex = 11;
+            UserDGV.AllowUserToAddRows = false;
+            UserDGV.AllowUserToDeleteRows = false;
+            UserDGV.AllowUserToResizeColumns = false;
+            UserDGV.AllowUserToResizeRows = false;
+            UserDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            UserDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            UserDGV.Location = new Point(16, 167);
+            UserDGV.Name = "UserDGV";
+            UserDGV.ReadOnly = true;
+            UserDGV.RowHeadersWidth = 62;
+            UserDGV.Size = new Size(1123, 316);
+            UserDGV.TabIndex = 11;
+            UserDGV.CellContentClick += UserDGV_CellContentClick;
             // 
             // label16
             // 
@@ -675,38 +728,13 @@
             label16.TabIndex = 10;
             label16.Text = "Zarządzaj pracownikami";
             // 
-            // textBox1
+            // UNameTb
             // 
-            textBox1.Location = new Point(15, 59);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 37);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Imię i nazwisko";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(304, 59);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(246, 37);
-            textBox2.TabIndex = 15;
-            textBox2.Text = "Numer telefonu";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(593, 59);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(246, 37);
-            textBox3.TabIndex = 16;
-            textBox3.Text = "Email";
-            textBox3.TextChanged += textBox3_TextChanged;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(893, 59);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(246, 37);
-            textBox4.TabIndex = 17;
-            textBox4.Text = "Hasło";
+            UNameTb.Location = new Point(15, 59);
+            UNameTb.Name = "UNameTb";
+            UNameTb.Size = new Size(246, 37);
+            UNameTb.TabIndex = 0;
+            UNameTb.Text = "Imię i nazwisko";
             // 
             // Users
             // 
@@ -768,7 +796,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)CourtsDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)UserDGV).EndInit();
             ResumeLayout(false);
         }
 
@@ -820,14 +848,15 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel panel2;
-        private Button button3;
+        private Button DeleteBtn;
         private Button button2;
-        private Button button1;
-        private DataGridView CourtsDGV;
+        private DataGridView UserDGV;
         private Label label16;
-        private TextBox textBox1;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox4;
+        private TextBox UNameTb;
+        private TextBox UEmailTb;
+        private TextBox UPhoneTb;
+        private TextBox UPasswordTb;
+        private Button SaveBtn;
+        private Button ClearBtn;
     }
 }

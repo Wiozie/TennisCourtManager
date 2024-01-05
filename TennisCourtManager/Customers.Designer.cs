@@ -75,14 +75,15 @@
             pictureBox1 = new PictureBox();
             label1 = new Label();
             panel2 = new Panel();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            button3 = new Button();
+            ClearBtn = new Button();
+            SaveBtn = new Button();
+            CustEmailTb = new TextBox();
+            CustPhoneTb = new TextBox();
+            DeleteBtn = new Button();
             button2 = new Button();
-            button1 = new Button();
-            CourtsDGV = new DataGridView();
+            CustDGV = new DataGridView();
             label16 = new Label();
-            textBox1 = new TextBox();
+            CustNameTb = new TextBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox15).BeginInit();
             panel15.SuspendLayout();
@@ -114,7 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)CourtsDGV).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)CustDGV).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -284,6 +285,7 @@
             label12.Size = new Size(123, 29);
             label12.TabIndex = 0;
             label12.Text = "Rezerwacje";
+            label12.Click += label12_Click;
             // 
             // panel11
             // 
@@ -412,6 +414,7 @@
             label8.Size = new Size(125, 29);
             label8.TabIndex = 0;
             label8.Text = "Pracownicy";
+            label8.Click += label8_Click;
             // 
             // panel7
             // 
@@ -476,6 +479,7 @@
             label6.Size = new Size(107, 29);
             label6.TabIndex = 0;
             label6.Text = "Kategorie";
+            label6.Click += label6_Click;
             // 
             // panel5
             // 
@@ -539,6 +543,7 @@
             label4.Size = new Size(65, 29);
             label4.TabIndex = 0;
             label4.Text = "Korty";
+            label4.Click += label4_Click;
             // 
             // panel3
             // 
@@ -606,76 +611,99 @@
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLight;
-            panel2.Controls.Add(textBox3);
-            panel2.Controls.Add(textBox2);
-            panel2.Controls.Add(button3);
+            panel2.Controls.Add(ClearBtn);
+            panel2.Controls.Add(SaveBtn);
+            panel2.Controls.Add(CustEmailTb);
+            panel2.Controls.Add(CustPhoneTb);
+            panel2.Controls.Add(DeleteBtn);
             panel2.Controls.Add(button2);
-            panel2.Controls.Add(button1);
-            panel2.Controls.Add(CourtsDGV);
+            panel2.Controls.Add(CustDGV);
             panel2.Controls.Add(label16);
-            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(CustNameTb);
             panel2.Location = new Point(217, 94);
             panel2.Name = "panel2";
             panel2.Size = new Size(1152, 495);
             panel2.TabIndex = 0;
             // 
-            // textBox3
+            // ClearBtn
             // 
-            textBox3.Location = new Point(773, 59);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(246, 37);
-            textBox3.TabIndex = 16;
-            textBox3.Text = "Email";
+            ClearBtn.BackColor = Color.SteelBlue;
+            ClearBtn.ForeColor = SystemColors.ControlLightLight;
+            ClearBtn.Location = new Point(855, 109);
+            ClearBtn.Name = "ClearBtn";
+            ClearBtn.Size = new Size(123, 51);
+            ClearBtn.TabIndex = 20;
+            ClearBtn.Text = "Wyczyść";
+            ClearBtn.UseVisualStyleBackColor = false;
+            ClearBtn.Click += ClearBtn_Click;
             // 
-            // textBox2
+            // SaveBtn
             // 
-            textBox2.Location = new Point(468, 59);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(246, 37);
-            textBox2.TabIndex = 15;
-            textBox2.Text = "Numer telefonu";
+            SaveBtn.BackColor = Color.MediumSeaGreen;
+            SaveBtn.ForeColor = SystemColors.ControlLightLight;
+            SaveBtn.Location = new Point(170, 109);
+            SaveBtn.Name = "SaveBtn";
+            SaveBtn.Size = new Size(123, 51);
+            SaveBtn.TabIndex = 19;
+            SaveBtn.Text = "Zapisz";
+            SaveBtn.UseVisualStyleBackColor = false;
+            SaveBtn.Click += SaveBtn_Click;
             // 
-            // button3
+            // CustEmailTb
             // 
-            button3.BackColor = Color.IndianRed;
-            button3.ForeColor = SystemColors.ControlLightLight;
-            button3.Location = new Point(777, 110);
-            button3.Name = "button3";
-            button3.Size = new Size(123, 51);
-            button3.TabIndex = 14;
-            button3.Text = "Usuń";
-            button3.UseVisualStyleBackColor = false;
+            CustEmailTb.Location = new Point(773, 59);
+            CustEmailTb.Name = "CustEmailTb";
+            CustEmailTb.Size = new Size(246, 37);
+            CustEmailTb.TabIndex = 16;
+            CustEmailTb.Text = "Email";
+            // 
+            // CustPhoneTb
+            // 
+            CustPhoneTb.Location = new Point(468, 59);
+            CustPhoneTb.Name = "CustPhoneTb";
+            CustPhoneTb.Size = new Size(246, 37);
+            CustPhoneTb.TabIndex = 15;
+            CustPhoneTb.Text = "Numer telefonu";
+            // 
+            // DeleteBtn
+            // 
+            DeleteBtn.BackColor = Color.IndianRed;
+            DeleteBtn.ForeColor = SystemColors.ControlLightLight;
+            DeleteBtn.Location = new Point(619, 109);
+            DeleteBtn.Name = "DeleteBtn";
+            DeleteBtn.Size = new Size(123, 51);
+            DeleteBtn.TabIndex = 14;
+            DeleteBtn.Text = "Usuń";
+            DeleteBtn.UseVisualStyleBackColor = false;
+            DeleteBtn.Click += DeleteBtn_Click;
             // 
             // button2
             // 
             button2.BackColor = Color.Goldenrod;
             button2.ForeColor = SystemColors.ControlLightLight;
-            button2.Location = new Point(533, 109);
+            button2.Location = new Point(385, 109);
             button2.Name = "button2";
             button2.Size = new Size(123, 51);
             button2.TabIndex = 13;
             button2.Text = "Edytuj";
             button2.UseVisualStyleBackColor = false;
+            button2.Click += button2_Click;
             // 
-            // button1
+            // CustDGV
             // 
-            button1.BackColor = Color.SteelBlue;
-            button1.ForeColor = SystemColors.ControlLightLight;
-            button1.Location = new Point(278, 109);
-            button1.Name = "button1";
-            button1.Size = new Size(123, 51);
-            button1.TabIndex = 12;
-            button1.Text = "Zapisz";
-            button1.UseVisualStyleBackColor = false;
-            // 
-            // CourtsDGV
-            // 
-            CourtsDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CourtsDGV.Location = new Point(16, 167);
-            CourtsDGV.Name = "CourtsDGV";
-            CourtsDGV.RowHeadersWidth = 62;
-            CourtsDGV.Size = new Size(1123, 316);
-            CourtsDGV.TabIndex = 11;
+            CustDGV.AllowUserToAddRows = false;
+            CustDGV.AllowUserToDeleteRows = false;
+            CustDGV.AllowUserToResizeColumns = false;
+            CustDGV.AllowUserToResizeRows = false;
+            CustDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            CustDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            CustDGV.Location = new Point(16, 167);
+            CustDGV.Name = "CustDGV";
+            CustDGV.ReadOnly = true;
+            CustDGV.RowHeadersWidth = 62;
+            CustDGV.Size = new Size(1123, 316);
+            CustDGV.TabIndex = 11;
+            CustDGV.CellContentClick += CustDGV_CellContentClick;
             // 
             // label16
             // 
@@ -689,13 +717,13 @@
             label16.TabIndex = 10;
             label16.Text = "Zarządzaj klientami";
             // 
-            // textBox1
+            // CustNameTb
             // 
-            textBox1.Location = new Point(159, 59);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(246, 37);
-            textBox1.TabIndex = 0;
-            textBox1.Text = "Imię i nazwisko";
+            CustNameTb.Location = new Point(159, 59);
+            CustNameTb.Name = "CustNameTb";
+            CustNameTb.Size = new Size(246, 37);
+            CustNameTb.TabIndex = 0;
+            CustNameTb.Text = "Imię i nazwisko";
             // 
             // Customers
             // 
@@ -757,7 +785,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)CourtsDGV).EndInit();
+            ((System.ComponentModel.ISupportInitialize)CustDGV).EndInit();
             ResumeLayout(false);
         }
 
@@ -809,13 +837,14 @@
         private PictureBox pictureBox1;
         private Label label1;
         private Panel panel2;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private Button button3;
+        private TextBox CustEmailTb;
+        private TextBox CustPhoneTb;
+        private Button DeleteBtn;
         private Button button2;
-        private Button button1;
-        private DataGridView CourtsDGV;
+        private DataGridView CustDGV;
         private Label label16;
-        private TextBox textBox1;
+        private TextBox CustNameTb;
+        private Button SaveBtn;
+        private Button ClearBtn;
     }
 }
