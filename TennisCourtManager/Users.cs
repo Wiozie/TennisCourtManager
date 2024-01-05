@@ -189,22 +189,30 @@ namespace TennisCourtManager
 
         private void label6_Click(object sender, EventArgs e)
         {
-            Kategorie kategorie = new Kategorie();
-            kategorie.Show();
-            this.Hide();
+
         }
 
         private void label10_Click(object sender, EventArgs e)
         {
-            Customers customers = new Customers();
-            customers.Show();
-            this.Hide();
+
         }
 
         private void label12_Click(object sender, EventArgs e)
         {
-            Reservations reservation = new Reservations();
-            reservation.Show();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
             this.Hide();
         }
     }

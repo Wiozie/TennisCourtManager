@@ -598,6 +598,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -608,6 +609,7 @@
             label1.Size = new Size(93, 29);
             label1.TabIndex = 0;
             label1.Text = "Wyloguj";
+            label1.Click += label1_Click;
             // 
             // panel2
             // 

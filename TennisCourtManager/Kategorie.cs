@@ -198,5 +198,38 @@ namespace TennisCourtManager
         {
             ClearFields();
         }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Nie posiadasz odpowiednich uprawnień");
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+            Customers customers = new Customers();
+            customers.Show();
+            this.Hide();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+            Reservations reservations = new Reservations();
+            reservations.Show();
+            this.Hide();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
+            this.Hide();
+        }
     }
 }

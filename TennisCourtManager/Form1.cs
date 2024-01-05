@@ -40,7 +40,9 @@ namespace TennisCourtManager
 
         private void label1_Click(object sender, EventArgs e)
         {
-
+            Login login = new Login();
+            login.Show();
+            this.Hide();
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -267,9 +269,7 @@ namespace TennisCourtManager
 
         private void label8_Click(object sender, EventArgs e)
         {
-            Users Obj = new Users();
-            Obj.Show();
-            this.Hide();
+            MessageBox.Show("Nie posiadasz odpowiednich uprawnieñ");
         }
 
         private void label10_Click(object sender, EventArgs e)
@@ -283,6 +283,13 @@ namespace TennisCourtManager
         {
             Reservations Obj = new Reservations();
             Obj.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            Login login = new Login();
+            login.Show();
             this.Hide();
         }
     }

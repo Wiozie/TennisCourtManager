@@ -329,6 +329,7 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // label1
             // 
@@ -339,6 +340,7 @@
             label1.Size = new Size(93, 29);
             label1.TabIndex = 0;
             label1.Text = "Wyloguj";
+            label1.Click += label1_Click;
             // 
             // panel2
             // 
@@ -459,6 +461,7 @@
             label8.Size = new Size(125, 29);
             label8.TabIndex = 0;
             label8.Text = "Pracownicy";
+            label8.Click += label8_Click;
             // 
             // panel1
             // 
@@ -627,6 +630,7 @@
             label12.Size = new Size(123, 29);
             label12.TabIndex = 0;
             label12.Text = "Rezerwacje";
+            label12.Click += label12_Click;
             // 
             // panel11
             // 
@@ -691,6 +695,7 @@
             label10.Size = new Size(78, 29);
             label10.TabIndex = 0;
             label10.Text = "Klienci";
+            label10.Click += label10_Click;
             // 
             // panel9
             // 
