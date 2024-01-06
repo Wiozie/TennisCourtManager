@@ -692,6 +692,10 @@
             // 
             // ResDGV
             // 
+            ResDGV.AllowUserToAddRows = false;
+            ResDGV.AllowUserToDeleteRows = false;
+            ResDGV.AllowUserToResizeRows = false;
+            ResDGV.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ResDGV.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ResDGV.Location = new Point(16, 167);
             ResDGV.Name = "ResDGV";

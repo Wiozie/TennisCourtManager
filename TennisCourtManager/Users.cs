@@ -55,7 +55,8 @@ namespace TennisCourtManager
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO UserTbl (UName, UPhone, UEmail, UPassword) VALUES (@UN, @UP, @UE, @UPwd)", Con);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO UserTbl (UName, UPhone, UEmail, UPassword) " +
+                        "VALUES (@UN, @UP, @UE, @UPwd)", Con);
                     cmd.Parameters.AddWithValue("@UN", UNameTb.Text);
                     cmd.Parameters.AddWithValue("@UP", UPhoneTb.Text);
                     cmd.Parameters.AddWithValue("@UE", UEmailTb.Text);
@@ -213,6 +214,13 @@ namespace TennisCourtManager
         {
             Login login = new Login();
             login.Show();
+            this.Hide();
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+            Dashboard dashboard = new Dashboard();
+            dashboard.Show();
             this.Hide();
         }
     }

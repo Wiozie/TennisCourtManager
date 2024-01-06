@@ -19,7 +19,9 @@ namespace TennisCourtManager
             populate();
         }
 
-        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\wziel\OneDrive\Dokumenty\CourtsDbase.mdf;Integrated Security=True;Connect Timeout=30");
+        SqlConnection Con = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;
+            AttachDbFilename=C:\Users\wziel\OneDrive\Dokumenty\CourtsDbase.mdf;
+            Integrated Security=True;Connect Timeout=30");
 
         private void populate()
         {

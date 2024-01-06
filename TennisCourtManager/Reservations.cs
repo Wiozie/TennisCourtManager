@@ -116,7 +116,8 @@ namespace TennisCourtManager
                 try
                 {
                     Con.Open();
-                    SqlCommand cmd = new SqlCommand("SELECT CName FROM CourtTbl WHERE CStatus = 'Dostępny' AND CNum NOT IN (SELECT ResCourt FROM ReservationTbl WHERE NOT (ResEnd <= @Start OR ResStart >= @End))", Con);
+                    SqlCommand cmd = new SqlCommand("SELECT CName FROM CourtTbl WHERE CStatus = 'Dostępny' AND CNum NOT IN (SELECT ResCourt FROM ReservationTbl " +
+                        "WHERE NOT (ResEnd <= @Start OR ResStart >= @End))", Con);
                     cmd.Parameters.AddWithValue("@Start", start);
                     cmd.Parameters.AddWithValue("@End", end);
 

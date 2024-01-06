@@ -222,6 +222,7 @@
             label14.Size = new Size(108, 29);
             label14.TabIndex = 0;
             label14.Text = "Statystyki";
+            label14.Click += label14_Click;
             // 
             // panel13
             // 
